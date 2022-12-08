@@ -92,8 +92,6 @@ Create the Conda Virtual Environment
 
 ```shell
 conda create --name xgboostv0.8.1 --clone optimised-xgboost
-
-
 ```
 
 Activate environment
@@ -124,7 +122,7 @@ conda deactivate xgboostv0.8.1
 Create the Conda Virtual Environment
 
 ```shell
-conda create --name xgboostv1.4.2
+conda create --name xgboostv1.4.2 python=3.10
 ```
 
 Activate environment
@@ -152,7 +150,7 @@ conda deactivate xgboostv1.4.2
 Create the Conda Virtual Environment
 
 ```shell
-conda create --name xgboost-latest --file ./Requirements/xgboost-latest-conda.txt
+conda create --name xgboost-latest python=3.10
 ```
 
 Activate environment
