@@ -58,12 +58,42 @@ Run the file [`XGBoost.ipynb`](./XGBoost.ipynb) in different environments
 
 ### Creating and Enabling Environments
 
-#### 1. For Unoptimised older XGBoost v0.8.1
+#### 1. For Intel `intel-aikit` which contains Intel Optimised version of XGBoost v1.4.2
 
 Create the Conda Virtual Environment
 
 ```shell
-conda create --name xgboostv0.8.1 --file ./Requirements/xgboost-v0.8.1-conda.txt
+conda create -n optimised-xgboost -c intel intel-aikit-modin
+```
+
+Activate environment
+
+```shell
+conda activate optimised-xgboost
+```
+
+Install required libraries through pip
+
+```shell
+pip install -r ./Requirements/Intel-optimised-xgboost-pip.txt
+```
+
+Now that environment is setup, Run the [Ipynb file](./XGBoost.ipynb)
+
+Deactivate environment
+
+```shell
+conda deactivate optimised-xgboost
+```
+
+#### 2. For Unoptimised older XGBoost v0.8.1
+
+Create the Conda Virtual Environment
+
+```shell
+conda create --name xgboostv0.8.1 --clone optimised-xgboost
+
+
 ```
 
 Activate environment
@@ -75,17 +105,26 @@ conda activate xgboostv0.8.1
 Install required libraries through pip
 
 ```shell
+# Removing existing version of xgboost
+conda remove xgboost
+
 pip install -r ./Requirements/xgboost-v0.8.1-pip.txt
 ```
 
 Now that environment is setup, Run the [Ipynb file](./XGBoost.ipynb)
 
-#### 2. XGBoost v1.4.2 without Intel Optimised libraries
+Deactivate environment
+
+```shell
+conda deactivate xgboostv0.8.1
+```
+
+#### 3. XGBoost v1.4.2 without Intel Optimised libraries
 
 Create the Conda Virtual Environment
 
 ```shell
-conda create --name xgboostv1.4.2 --file ./Requirements/xgboost-v1.4.2-conda.txt
+conda create --name xgboostv1.4.2
 ```
 
 Activate environment
@@ -102,27 +141,11 @@ pip install -r ./Requirements/xgboost-v1.4.2-pip.txt
 
 Now that environment is setup, Run the [Ipynb file](./XGBoost.ipynb)
 
-#### 3. For Intel `intel-aikit` which contains Intel Optimised version of XGBoost v1.4.2
-
-Create the Conda Virtual Environment
+Deactivate environment
 
 ```shell
-conda create --name optimised-xgboost --file ./Requirements/Intel-optimised-xgboost-conda.txt
+conda deactivate xgboostv1.4.2
 ```
-
-Activate environment
-
-```shell
-conda activate optimised-xgboost
-```
-
-Install required libraries through pip
-
-```shell
-pip install -r ./Requirements/Intel-optimised-xgboost-pip.txt
-```
-
-Now that environment is setup, Run the [Ipynb file](./XGBoost.ipynb)
 
 #### 4. Latest XGBoost v1.7.1
 
@@ -145,6 +168,12 @@ pip install -r ./Requirements/xgboost-latest-pip.txt
 ```
 
 Now that environment is setup, Run the [Ipynb file](./XGBoost.ipynb)
+
+Deactivate environment
+
+```shell
+conda deactivate xgboost-latest
+```
 
 # XG Boost vs daal4py Benchmarking
 
