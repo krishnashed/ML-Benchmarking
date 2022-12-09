@@ -106,7 +106,7 @@ Install required libraries through pip
 # Removing existing version of xgboost
 conda remove xgboost
 
-pip install -r ./Requirements/xgboost-v0.8.1-pip.txt
+pip install xgboost==0.81
 ```
 
 Now that environment is setup, Run the [Ipynb file](./XGBoost.ipynb)
