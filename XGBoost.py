@@ -72,13 +72,13 @@ if not os.path.isfile(filename):
     df.to_csv(filename, index=False) 
 else:
     df = pd.read_csv(filename)
-    if not df.shape[0]==2:
+    if not df.shape[0]==3:
         df2 = pd.DataFrame([[xgb_ver,xgb_total]], columns = ["XGBoost Version",  "Time in Sec"])
         df = df.append(df2, ignore_index=True)
         df.to_csv(filename, index=False)
 
 
-if ((os.path.isfile(filename)) and (df.shape[0]==2)):
+if ((os.path.isfile(filename)) and (df.shape[0]==3)):
     df.plot(x='XGBoost Version', y='Time in Sec', kind='bar',width = 0.5)
     plt.xlabel('XGBoost Version'); plt.ylabel('Time in Sec'); plt.title('XGBoost Performance Comparison')
     plt.show()
